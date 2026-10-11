@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PackCheck | Compliance Lab</title>
+<style>
+:root{--bg:#080d1c;--panel:#101a2e;--panel2:#14213a;--line:#263755;--text:#edf5ff;--muted:#9aaccc;--cyan:#39e7ff;--violet:#9c78ff;--green:#48efb2;--amber:#ffc866;--red:#ff6e8a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#1c2c55 0,transparent 40%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:14px}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{min-height:100vh;display:grid;grid-template-columns:245px minmax(0,1fr)}.sidebar{padding:25px 16px;border-right:1px solid var(--line);background:#0b1223;display:flex;flex-direction:column;gap:28px}.brand{display:flex;align-items:center;gap:11px;padding:0 7px}.brand-icon{height:42px;width:42px;border-radius:13px;display:grid;place-items:center;font-size:22px;color:#07121e;background:linear-gradient(135deg,var(--cyan),var(--violet));box-shadow:0 0 24px #39e7ff22}.brand strong{font-size:20px;letter-spacing:.2px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.3px;margin-top:4px}.nav-label{color:#7184a8;font-size:10px;letter-spacing:1.8px;padding:0 12px;margin-bottom:9px}.nav{display:grid;gap:7px}.nav button{border:1px solid transparent;background:transparent;color:#a9bad7;text-align:left;padding:12px;border-radius:11px;display:flex;align-items:center;gap:11px}.nav button.active,.nav button:hover{color:var(--cyan);background:#152741;border-color:#23405e}.nav button span{width:20px;text-align:center;font-size:17px}.side-info{margin-top:auto;padding:15px;border:1px solid #2b4463;background:linear-gradient(135deg,#14223b,#10182a);border-radius:14px;color:var(--muted);font-size:11px;line-height:1.7}.side-info b{color:var(--cyan);display:block;margin-bottom:5px}main{min-width:0;padding:28px clamp(16px,3vw,40px) 45px;max-width:1600px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.eyebrow{color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:2px}.top h1{font-size:27px;margin:7px 0 0;letter-spacing:-.7px}.user-chip{border:1px solid var(--line);background:#101a2e;border-radius:12px;padding:9px 12px;display:flex;gap:9px;align-items:center;color:var(--muted);font-size:11px}.user-icon{width:32px;height:32px;border-radius:10px;background:#203c52;color:var(--cyan);display:grid;place-items:center;font-weight:800}.hero{border:1px solid #28506b;border-radius:19px;padding:25px 28px;background:linear-gradient(115deg,#10283d,#192345 62%,#29204b);display:flex;align-items:center;justify-content:space-between;gap:15px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:200px;height:200px;border:35px solid #39e7ff0b;border-radius:50%;right:8%;top:-100px}.hero-copy{position:relative;z-index:1}.tag{font-size:10px;letter-spacing:1px;color:var(--cyan);border:1px solid #39e7ff45;background:#39e7ff0c;padding:7px 10px;border-radius:20px;display:inline-block}.hero h2{font-size:clamp(22px,3vw,30px);margin:14px 0 8px}.hero p{color:#aebfdb;line-height:1.7;font-size:12px;max-width:640px;margin:0}.hero-mark{font-size:62px;position:relative;z-index:1;filter:drop-shadow(0 0 20px #39e7ff22)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:18px 0}.stat,.panel{background:linear-gradient(145deg,#111c31,#0e1729);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}.stat-label{color:var(--muted);display:flex;justify-content:space-between;align-items:center;font-size:11px}.stat-icon{height:31px;width:31px;border-radius:10px;background:#1b3447;color:var(--cyan);display:grid;place-items:center}.stat strong{font-size:26px;display:block;margin:11px 0 4px}.stat small{font-size:10px;color:#8497b8}.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:16px}.panel{padding:21px}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:17px}.panel h3{font-size:15px;margin:0 0 5px}.panel-head p{font-size:11px;color:var(--muted);margin:0;line-height:1.5}.pill{font-size:9px;font-weight:800;letter-spacing:.8px;padding:7px 9px;border-radius:20px;color:var(--cyan);background:#163345;border:1px solid #254c61;white-space:nowrap}.drop{border:1.5px dashed #345575;background:#0d1a2d;border-radius:14px;text-align:center;padding:19px 14px}.drop.drag{border-color:var(--cyan);background:#11283b}.upload-symbol{font-size:27px;margin-bottom:7px}.drop b{display:block;font-size:12px}.drop p{font-size:10px;color:var(--muted);margin:7px 0 13px}.btn{border:1px solid transparent;border-radius:9px;padding:10px 13px;font-weight:750;font-size:11px;transition:.15s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.primary{background:linear-gradient(100deg,#14bfdc,#5b8dff);color:#061321;box-shadow:0 5px 18px #1bc9e41b}.secondary{background:#1a2942;color:#c8d7f1;border-color:#30445f}.ghost{background:transparent;color:var(--muted);border-color:var(--line)}.danger{background:#351c2a;color:#ff9caf;border-color:#633043}.preview{display:none;align-items:center;gap:12px;padding:10px;margin-top:12px;border:1px solid var(--line);border-radius:12px}.preview img{height:67px;width:67px;object-fit:contain;background:#0a1120;border-radius:9px}.preview-info{flex:1;min-width:0}.preview-info b{font-size:11px;display:block;overflow-wrap:anywhere}.preview-info small{font-size:10px;color:var(--muted);display:block;margin-top:4px}.action-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.note{font-size:10px;line-height:1.6;color:#d7b978;background:#2a2519;border:1px solid #55462b;border-radius:10px;padding:11px;margin-top:14px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field.full{grid-column:1/-1}.field label{display:block;font-size:11px;font-weight:700;color:#c6d6ee;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;background:#0a1324;color:var(--text);border:1px solid #2b3d5a;border-radius:9px;padding:11px;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #39e7ff12}.field textarea{min-height:72px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#617494}.help{font-size:10px;color:#8195b5;margin-top:5px;line-height:1.5}.form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.checks{display:grid;gap:9px}.check{display:flex;gap:10px;padding:12px;border:1px solid var(--line);background:#0d1729;border-radius:11px;align-items:flex-start}.check-icon{height:29px;width:29px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;background:#192e43;color:var(--cyan)}.check b{font-size:11px;display:block;margin:1px 0 4px}.check small{font-size:10px;color:var(--muted);line-height:1.55;display:block}.report{display:none;margin-top:16px}.summary{display:flex;gap:13px;align-items:center;background:#0c1729;border:1px solid var(--line);padding:14px;border-radius:12px;margin-bottom:13px}.score{width:59px;height:59px;border:3px solid var(--amber);color:var(--amber);border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;flex-shrink:0}.summary h4{margin:0 0 5px;font-size:13px}.summary p{font-size:10px;color:var(--muted);line-height:1.6;margin:0}.result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.result-item{border:1px solid var(--line);border-radius:10px;padding:11px;background:#0c1729}.result-item b{font-size:11px;display:block;margin-bottom:5px}.result-item small{font-size:10px;color:var(--muted);line-height:1.5;display:block}.status{font-size:9px;font-weight:900;letter-spacing:.7px;margin-bottom:6px;display:inline-block;padding:4px 7px;border-radius:6px}.status.pass{background:#12382f;color:var(--green)}.status.fail{background:#3a1d2a;color:var(--red)}.status.review{background:#3a301d;color:var(--amber)}.history{margin-top:16px}.history-list{display:grid;gap:8px}.history-entry{border:1px solid var(--line);border-radius:10px;padding:11px;display:flex;justify-content:space-between;align-items:center;gap:10px}.history-entry b{font-size:11px;display:block;overflow-wrap:anywhere}.history-entry small{font-size:10px;color:var(--muted);display:block;margin-top:4px}.empty{padding:16px;border:1px dashed var(--line);color:var(--muted);text-align:center;border-radius:10px;font-size:11px}.footer{color:#7184a4;text-align:center;font-size:10px;line-height:1.7;margin-top:20px}.toast{position:fixed;right:18px;bottom:18px;background:#e8faff;color:#071827;padding:12px 16px;border-radius:10px;font-size:12px;font-weight:700;display:none;z-index:10;box-shadow:0 8px 30px #0006;max-width:calc(100vw - 36px)}
+@media(max-width:1000px){.app{grid-template-columns:205px 1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.hero-mark{font-size:48px}}
+@media(max-width:650px){.app{display:block}.sidebar{padding:13px;gap:13px}.nav-label,.side-info{display:none}.nav{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.nav button{flex-direction:column;justify-content:center;text-align:center;font-size:9px;padding:9px 2px;gap:4px}.nav button span{font-size:15px}.top{align-items:flex-start}.top h1{font-size:21px}.user-chip{padding:5px}.user-chip .who{display:none}main{padding:18px 12px 30px}.hero{padding:20px}.hero-mark{display:none}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:22px}.panel{padding:15px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.result-list{grid-template-columns:1fr}}
+
+.login{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at 75% -10%,#1c2c55 0,transparent 45%),radial-gradient(ellipse at 10% 110%,#2a1f55 0,transparent 40%),var(--bg)}
+.login-card{width:100%;max-width:420px;border:1px solid #28506b;border-radius:20px;padding:34px 30px;text-align:center;background:linear-gradient(145deg,#111c31,#0e1729);box-shadow:0 20px 60px #0008}
+.login-card .brand-icon{margin:0 auto 16px;height:56px;width:56px;font-size:28px;border-radius:16px}
+.login-card h1{margin:0 0 4px;font-size:25px;letter-spacing:-.5px}
+.login-card .sub{color:var(--muted);font-size:10px;letter-spacing:1.5px;margin-bottom:20px}
+.login-card p{color:#aebfdb;font-size:12px;line-height:1.7;margin:0 0 22px}
+#g-btn{display:flex;justify-content:center;min-height:44px}
+.login-msg{display:none;margin-top:16px;font-size:11px;line-height:1.6;border-radius:10px;padding:11px;text-align:left}
+.login-msg.err{display:block;color:#ff9caf;background:#351c2a;border:1px solid #633043}
+.login-msg.warn{display:block;color:#d7b978;background:#2a2519;border:1px solid #55462b}
+.login-msg code{background:#0a1324;padding:1px 5px;border-radius:5px;color:var(--cyan)}
+.login-foot{margin-top:18px;font-size:10px;color:#7184a4;line-height:1.6}
+.user-chip img{width:32px;height:32px;border-radius:10px;object-fit:cover}
+.user-chip .who{line-height:1.45}.user-chip .who b{color:var(--text);font-size:12px;display:block}
+.user-chip .btn{padding:7px 10px;margin-left:4px}
+body.locked .app{display:none}
+body:not(.locked) .login{display:none}
+</style>
+</head>
+<body class="locked">
+<div class="login" id="login"><div class="login-card">
+  <div class="brand-icon">⚖</div>
+  <h1>PackCheck</h1><div class="sub">COMPLIANCE LAB / 26034</div>
+  <p>Sign in with your Google account to access the compliance checking workspace. Only authenticated users can run checks and view reports.</p>
+  <div id="g-btn"></div>
+  <div class="login-msg" id="login-msg" role="alert"></div>
+  <div class="login-foot">We use Google Sign-In to verify your identity. Your Google password is never shared with PackCheck.</div>
+</div></div>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">⚖</div><div><strong>PackCheck</strong><small>COMPLIANCE LAB / 26034</small></div></div>
+  <div><div class="nav-label">WORKSPACE</div><nav class="nav">
+    <button class="active" data-target="overview"><span>▦</span>Overview</button>
+    <button data-target="upload"><span>⇧</span>Product image</button>
+    <button data-target="declarations"><span>⌁</span>Declarations</button>
+    <button data-target="report"><span>▤</span>Report</button>
+  </nav></div>
+  <div class="side-info"><b>◉ DEMO MODE</b>This frontend checks declaration fields entered by the user. It does not automatically read text from product photos or replace an official legal inspection.</div>
+</aside>
+<main>
+<header class="top" id="overview"><div><div class="eyebrow">LEGAL METROLOGY / INSPECTION WORKSPACE</div><h1>Compliance Checking Lab</h1></div><div class="user-chip"><img id="user-avatar" alt="" referrerpolicy="no-referrer" style="display:none"><div class="user-icon" id="user-initial">PC</div><div class="who"><b id="user-name">Signed in</b><span id="user-email" style="color:#7184a4"></span></div><button class="btn ghost" id="signout" type="button">Sign out</button></div></header>
+<section class="hero"><div class="hero-copy"><span class="tag">✦ RULE-BASED CHECKING PROTOTYPE</span><h2>Inspect the label. Flag what needs review.</h2><p>Enter the package declarations below and run preliminary validation checks for missing information, basic formats, and obvious inconsistencies. Each finding explains what to review next.</p></div><div class="hero-mark">📦</div></section>
+<section class="stats">
+  <div class="stat"><div class="stat-label">Images selected <span class="stat-icon">▧</span></div><strong id="stat-images">0</strong><small>This browser session</small></div>
+  <div class="stat"><div class="stat-label">Checks run <span class="stat-icon">⌁</span></div><strong id="stat-checks">0</strong><small>Rule-based demo runs</small></div>
+  <div class="stat"><div class="stat-label">Items to review <span class="stat-icon">⚠</span></div><strong id="stat-review">0</strong><small>Latest report</small></div>
+  <div class="stat"><div class="stat-label">Field checks <span class="stat-icon">✓</span></div><strong>8</strong><small>Basic prototype rules</small></div>
+</section>
+<div class="grid">
+<section class="panel" id="upload">
+ <div class="panel-head"><div><h3>01 / Product image</h3><p>Optional evidence image for your report.</p></div><span class="pill">IMAGE INPUT</span></div>
+ <div class="drop" id="drop"><div class="upload-symbol">⬆</div><b>Drop a product label image here</b><p>or choose a file · PNG, JPG, WEBP · maximum 12 MB</p><button class="btn primary" id="choose">Choose image</button><input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden></div>
+ <div class="preview" id="preview"><img id="preview-img" alt="Selected package image"><div class="preview-info"><b id="file-name"></b><small id="file-size"></small><small style="color:var(--cyan)">Attached as visual evidence</small></div><button class="btn danger" id="remove">Remove</button></div>
+ <div class="note">Important: selecting an image does not extract its text. For this beginner version, type the declarations you can read from the label into the form on the right. OCR can be added later.</div>
+</section>
+<section class="panel" id="declarations">
+ <div class="panel-head"><div><h3>02 / Enter label declarations</h3><p>Fill in what you can read from the package.</p></div><span class="pill">INPUT FORM</span></div>
+ <form id="compliance-form">
+ <div class="fields">
+  <div class="field full"><label for="product">Product name *</label><input id="product" placeholder="e.g. Packaged biscuits" required></div>
+  <div class="field full"><label for="maker">Manufacturer / packer / importer name and address *</label><textarea id="maker" placeholder="Enter the name and address as printed" required></textarea><div class="help">Check the role that applies to this product and the applicable rule.</div></div>
+  <div class="field"><label for="quantity">Net quantity *</label><input id="quantity" placeholder="e.g. 500 g" required></div>
+  <div class="field"><label for="mrp">MRP declaration (₹) *</label><input id="mrp" placeholder="e.g. ₹ 99.00" required></div>
+  <div class="field"><label for="date">Month / year or applicable date detail *</label><input id="date" placeholder="e.g. Packed: 08/2026" required></div>
+  <div class="field"><label for="consumer">Consumer care details *</label><input id="consumer" placeholder="Phone, email or address" required></div>
+  <div class="field"><label for="unitprice">Unit sale price (if applicable)</label><input id="unitprice" placeholder="Optional: e.g. ₹ 19.80 / 100 g"></div>
+  <div class="field"><label for="country">Country of origin (if applicable)</label><input id="country" placeholder="Optional: e.g. Made in India"></div>
+  <div class="field full"><label for="notes">Other declarations / observations</label><textarea id="notes" placeholder="Record other printed declarations, readability concerns, or inspection notes"></textarea></div>
+ </div>
+ <div class="form-actions"><button class="btn primary" type="submit">⚡ Run rule checks</button><button class="btn secondary" type="button" id="sample">Fill sample data</button><button class="btn ghost" type="reset" id="clear">Clear form</button></div>
+ </form>
+</section>
+</div>
+<section class="panel report" id="report">
+ <div class="panel-head"><div><h3>03 / Preliminary compliance report</h3><p id="report-meta">Results will appear here after you run the checks.</p></div><span class="pill">RULE ENGINE · DEMO</span></div>
+ <div class="summary"><div class="score" id="score">—</div><div><h4 id="result-title">No report yet</h4><p id="result-desc">Complete the declaration form and run the checks. This demo tests data you enter, not the image itself.</p></div></div>
+ <div class="result-list" id="result-list"></div>
+ <div class="form-actions"><button class="btn primary" id="download">Download report (.txt)</button><button class="btn secondary" id="new-check">Run another check</button></div>
+ <div class="note">Legal and technical limitation: these are preliminary software checks, not a complete interpretation of the Legal Metrology (Packaged Commodities) Rules, 2011. Applicability depends on product type, package, exemptions, amendments and current official requirements. Font size, placement, readability, misleading claims and actual label contents still need a suitable OCR/image-analysis module and human verification.</div>
+</section>
+<section class="panel history" id="history">
+ <div class="panel-head"><div><h3>Recent reports</h3><p>Saved in this browser for your Google account.</p></div><button class="btn ghost" id="clear-history">Clear history</button></div>
+ <div class="history-list" id="history-list"><div class="empty">No reports yet. Run your first check to see it here.</div></div>
+</section>
+<div class="footer">PackCheck · Problem Statement ID 26034 · Educational prototype<br>For real compliance decisions, verify against the current official rules and qualified guidance.</div>
+</main></div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const $ = id => document.getElementById(id);
+let imageUrl=null, imageCount=0, checksRun=0, latestReport=null, reportHistory=[];
+function toast(msg){$('toast').textContent=msg;$('toast').style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').style.display='none',2800)}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function attachImage(file){
+ if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)){toast('Please select a PNG, JPG or WEBP image.');return}
+ if(file.size>12*1024*1024){toast('Image must be smaller than 12 MB.');return}
+ if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=URL.createObjectURL(file);
+ $('preview-img').src=imageUrl;$('file-name').textContent=file.name;$('file-size').textContent=(file.size/1024).toFixed(1)+' KB';$('preview').style.display='flex';$('drop').style.display='none';
+ if(!imageCount)imageCount=1;$('stat-images').textContent=imageCount;toast('Image attached. Enter the label details manually.')
+}
+$('choose').addEventListener('click',()=>$('file').click());
+$('file').addEventListener('change',e=>{if(e.target.files[0])attachImage(e.target.files[0])});
+$('remove').addEventListener('click',()=>{if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=null;$('file').value='';$('preview').style.display='none';$('drop').style.display='block';toast('Image removed.')});
+$('drop').addEventListener('dragover',e=>{e.preventDefault();$('drop').classList.add('drag')});
+$('drop').addEventListener('dragleave',()=>$('drop').classList.remove('drag'));
+$('drop').addEventListener('drop',e=>{e.preventDefault();$('drop').classList.remove('drag');if(e.dataTransfer.files[0])attachImage(e.dataTransfer.files[0])});
+$('sample').addEventListener('click',()=>{
+ $('product').value='Packaged biscuits';$('maker').value='Example Foods Pvt. Ltd., 12 Market Road, Chennai';$('quantity').value='500 g';$('mrp').value='₹ 99.00';$('date').value='Packed: 08/2026';$('consumer').value='care@example.invalid, 1800-000-000';$('unitprice').value='₹ 19.80 per 100 g';$('country').value='Made in India';$('notes').value='Sample values for testing only; not a real product label.';toast('Sample fields filled. Click Run rule checks.')});
+function hasText(id){return $(id).value.trim().length>0}
+function basicMrpValid(raw){
+ // Accept common human-entered MRP patterns. This is syntax checking, not legal validation.
+ const s=raw.trim().replace(/,/g,'');
+ return /(?:₹|rs\.?|inr)?\s*\d+(?:\.\d{1,2})?/i.test(s) && /\d/.test(s);
+}
+function quantityLooksPlausible(raw){
+ // Basic format check only; it does not decide which unit is legally appropriate.
+ return /\d/.test(raw) && /(kg|g|mg|l|ml|m[lL]|cm|mm|metre|meter|unit|piece|pcs|no\.?)/i.test(raw);
+}
+function runRuleChecks(){
+ const fields=[
+  {name:'Product name',id:'product',detail:'Record the product identity shown on the package.'},
+  {name:'Manufacturer / packer / importer details',id:'maker',detail:'Verify the applicable business name and full address against the current rule.'},
+  {name:'Net quantity',id:'quantity',detail:'A number and a recognizable unit were checked. Verify the correct declaration and unit for this product.'},
+  {name:'MRP',id:'mrp',detail:'Basic price-number format only. Verify the exact MRP declaration, inclusions, print and applicability.'},
+  {name:'Month / year or applicable date',id:'date',detail:'Presence only was checked. Verify which date declaration is required for this product.'},
+  {name:'Consumer care details',id:'consumer',detail:'Presence only was checked. Verify required contact particulars and their correctness.'}
+ ];
+ const rows=fields.map(f=>{
+  const value=$(f.id).value.trim();
+  if(!value)return {...f,status:'fail',finding:'Missing: enter this field or verify whether it is required for this product.'};
+  if(f.id==='mrp'&&!basicMrpValid(value))return {...f,status:'review',finding:'A clear price amount was not recognized. Check the MRP format manually.'};
+  if(f.id==='quantity'&&!quantityLooksPlausible(value))return {...f,status:'review',finding:'Could not recognize a common quantity unit. Verify the unit and declaration manually.'};
+  return {...f,status:'review',finding:f.detail+' This field is present but has not been verified against the law.'};
+ });
+ const optional=[
+  {name:'Unit sale price',id:'unitprice',detail:'Check whether this declaration applies to the commodity and package.'},
+  {name:'Country of origin',id:'country',detail:'Check whether origin declaration applies to this product.'}
+ ];
+ optional.forEach(f=>{if(hasText(f.id))rows.push({...f,status:'review',finding:f.detail+' Presence alone does not prove compliance.'})});
+ rows.push({name:'Readability, font size and placement',status:'review',finding:'Not evaluated by this form. Inspect the physical label or implement image-analysis support.'});
+ rows.push({name:'Other applicable declarations and exemptions',status:'review',finding:'Needs product-specific review against the current official rules and amendments.'});
+ const missing=rows.filter(r=>r.status==='fail').length;
+ const review=rows.filter(r=>r.status==='review').length;
+ const total=rows.length;
+ const score=Math.round(((total-missing)/total)*100);
+ checksRun++;$('stat-checks').textContent=checksRun;$('stat-review').textContent=missing+review;
+ const now=new Date();
+ latestReport={product:$('product').value.trim()||'Unnamed product',date:now.toLocaleString(),score,missing,review,rows,notes:$('notes').value.trim(),image:$('file-name').textContent||'No image attached'};
+ $('score').textContent=score+'%';$('result-title').textContent=missing?'Missing fields found — manual review required':'Fields entered — manual review required';
+ $('result-desc').textContent=`${missing} missing field(s), ${review} item(s) needing review. A high score does not mean the package is legally compliant.`;
+ $('report-meta').textContent=latestReport.product+' · '+latestReport.date;
+ $('result-list').innerHTML=rows.map(r=>`<div class="result-item"><span class="status ${r.status}">${r.status==='fail'?'MISSING':r.status==='pass'?'CHECKED':'REVIEW'}</span><b>${escapeHtml(r.name)}</b><small>${escapeHtml(r.finding)}</small></div>`).join('');
+ $('report').style.display='block';reportHistory.unshift(latestReport);saveHistory();renderHistory();$('report').scrollIntoView({behavior:'smooth',block:'start'});toast('Preliminary rule checks complete.')
+}
+$('compliance-form').addEventListener('submit',e=>{e.preventDefault();runRuleChecks()});
+$('clear').addEventListener('click',()=>{setTimeout(()=>toast('Form cleared.'),0)});
+$('new-check').addEventListener('click',()=>$('declarations').scrollIntoView({behavior:'smooth',block:'start'}));
+$('download').addEventListener('click',()=>{
+ if(!latestReport){toast('Run the checks first.');return}
+ const r=latestReport;
+ const content=`PACKCHECK — PRELIMINARY COMPLIANCE CHECK\nProblem Statement ID: 26034\nProduct: ${r.product}\nDate: ${r.date}\nImage: ${r.image}\nDemo field-completeness score: ${r.score}% (NOT a legal compliance score)\nMissing fields: ${r.missing}\nItems requiring review: ${r.review}\n\nFINDINGS\n${r.rows.map((x,i)=>`${i+1}. ${x.name}\nStatus: ${x.status.toUpperCase()}\nFinding: ${x.finding}`).join('\n\n')}\n\nInspector notes: ${r.notes||'None entered'}\n\nLIMITATION\nThis prototype performs basic checks on user-entered text only. It does not perform OCR, font-size analysis, label placement analysis, or full validation against the Legal Metrology (Packaged Commodities) Rules, 2011. Verify applicable current rules and amendments before making a real compliance decision.`;
+ const blob=new Blob([content],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='PackCheck-preliminary-report.txt';a.click();URL.revokeObjectURL(url);toast('Report downloaded.')
+});
+function renderHistory(){
+ const list=$('history-list');if(!reportHistory.length){list.innerHTML='<div class="empty">No reports yet. Run your first check to see it here.</div>';return}
+ list.innerHTML=reportHistory.slice(0,8).map((r,i)=>`<div class="history-entry"><div><b>${escapeHtml(r.product)}</b><small>${escapeHtml(r.date)} · ${r.missing} missing field(s), ${r.review} review item(s)</small></div><button class="btn secondary" data-report="${i}">View report</button></div>`).join('');
+ list.querySelectorAll('[data-report]').forEach(btn=>btn.addEventListener('click',()=>{latestReport=reportHistory[Number(btn.dataset.report)];$('report').style.display='block';$('report-meta').textContent=latestReport.product+' · '+latestReport.date;$('score').textContent=latestReport.score+'%';$('result-title').textContent=latestReport.missing?'Missing fields found — manual review required':'Fields entered — manual review required';$('result-desc').textContent=`${latestReport.missing} missing field(s), ${latestReport.review} item(s) needing review. A high score does not mean the package is legally compliant.`;$('result-list').innerHTML=latestReport.rows.map(r=>`<div class="result-item"><span class="status ${r.status}">${r.status==='fail'?'MISSING':'REVIEW'}</span><b>${escapeHtml(r.name)}</b><small>${escapeHtml(r.finding)}</small></div>`).join('');$('report').scrollIntoView({behavior:'smooth',block:'start'})}));
+}
+$('clear-history').addEventListener('click',()=>{reportHistory=[];saveHistory();renderHistory();toast('Report history cleared.')});
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const target=$(b.dataset.target);if(target)target.scrollIntoView({behavior:'smooth',block:'start'})}));
+
+/* ================= GOOGLE SIGN-IN ================= */
+// 1) Create an OAuth 2.0 "Web application" Client ID in Google Cloud Console.
+// 2) Add your site origin (e.g. http://localhost:5500 or https://yourdomain.com) under "Authorized JavaScript origins".
+// 3) Paste the Client ID below.
+const GOOGLE_CLIENT_ID='371972209218-bholblbeeg2vtjk07lcbkpltmjhaeckc.apps.googleusercontent.com';
+let currentUser=null;
+function loginMsg(type,html){const m=$('login-msg');m.className='login-msg '+type;m.innerHTML=html}
+function parseJwt(t){const b=t.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(atob(b).split('').map(c=>'%'+('00'+c.charCodeAt(0).toString(16)).slice(-2)).join('')))}
+function storeGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function storeSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function storeDel(k){try{localStorage.removeItem(k)}catch(e){}}
+function historyKey(){return 'packcheck_history_'+currentUser.sub}
+function saveHistory(){if(currentUser)storeSet(historyKey(),JSON.stringify(reportHistory.slice(0,8)))}
+function loadHistory(){try{reportHistory=JSON.parse(storeGet(historyKey())||'[]')}catch(e){reportHistory=[]}renderHistory()}
+function startSession(user){
+ currentUser=user;
+ $('user-name').textContent=user.name||'Signed in';$('user-email').textContent=user.email||'';
+ $('user-initial').textContent=(user.name||user.email||'U').trim().charAt(0).toUpperCase();
+ if(user.picture){$('user-avatar').src=user.picture;$('user-avatar').style.display='block';$('user-initial').style.display='none'}
+ else{$('user-avatar').style.display='none';$('user-initial').style.display='grid'}
+ document.body.classList.remove('locked');loadHistory();
+}
+function handleCredential(resp){
+ try{
+  const p=parseJwt(resp.credential);
+  if(p.aud!==GOOGLE_CLIENT_ID||(p.exp&&p.exp*1000<Date.now()))throw new Error('Invalid or expired token');
+  if(p.email_verified===false)throw new Error('Google email is not verified');
+  const user={sub:p.sub,name:p.name,email:p.email,picture:p.picture};
+  storeSet('packcheck_user',JSON.stringify({user,exp:Date.now()+8*3600*1000}));
+  startSession(user);toast('Welcome, '+(p.given_name||p.name||'user')+'!');
+ }catch(e){loginMsg('err','Sign-in failed: '+escapeHtml(e.message)+'. Please try again.')}
+}
+function signOut(){
+ if(window.google&&google.accounts&&google.accounts.id)google.accounts.id.disableAutoSelect();
+ storeDel('packcheck_user');currentUser=null;reportHistory=[];latestReport=null;
+ $('report').style.display='none';$('compliance-form').reset();renderHistory();
+ document.body.classList.add('locked');toast('Signed out.');
+}
+$('signout').addEventListener('click',signOut);
+function initGoogle(){
+ if(location.protocol==='file:'){loginMsg('warn','Google Sign-In does not work when the page is opened as a local file. Serve it over <code>http://localhost</code> (e.g. <code>python -m http.server 5500</code>) or host it on HTTPS.');return}
+ if(GOOGLE_CLIENT_ID.startsWith('YOUR_GOOGLE_CLIENT_ID')){loginMsg('warn','Setup needed: set <code>GOOGLE_CLIENT_ID</code> in the script to your Google OAuth Web Client ID.');return}
+ if(!(window.google&&google.accounts&&google.accounts.id)){loginMsg('err','Could not load Google Sign-In. Check your internet connection and reload.');return}
+ google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:handleCredential,auto_select:false,cancel_on_tap_outside:true});
+ google.accounts.id.renderButton($('g-btn'),{theme:'filled_blue',size:'large',shape:'pill',text:'signin_with',width:300});
+}
+(function restore(){
+ try{const s=JSON.parse(storeGet('packcheck_user')||'null');if(s&&s.user&&s.exp>Date.now())startSession(s.user);else storeDel('packcheck_user')}catch(e){}
+})();
+window.addEventListener('load',()=>{if(!currentUser)setTimeout(initGoogle,300)});
+</script>
+</body>
+</html>
