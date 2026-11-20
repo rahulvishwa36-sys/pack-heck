@@ -1,1 +1,131 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PackCheck | Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#101629;
+  color:#f4f5ff;
+}
+header{
+  padding:22px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #29344e;
+}
+.logo{font-size:25px;font-weight:800;color:#b9a5ff}
+nav a{
+  color:#c8cce0;
+  text-decoration:none;
+  margin-left:22px;
+  font-size:14px;
+}
+main{max-width:1200px;margin:auto;padding:35px 22px}
+.hero{
+  min-height:300px;
+  padding:45px;
+  border-radius:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(100deg,#30245f,#17466a);
+  animation:fadeIn .8s ease;
+}
+.hero h1{font-size:38px;margin:0 0 12px}
+.hero p{color:#d4d9f0;line-height:1.7;max-width:600px}
+.modules{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
+  margin-top:28px;
+}
+.module{
+  padding:25px;
+  background:#1a2540;
+  border:1px solid #344361;
+  border-radius:17px;
+  transition:.25s;
+  animation:fadeIn .8s ease;
+}
+.module:hover{
+  transform:translateY(-6px);
+  border-color:#a995ff;
+}
+.module .symbol{font-size:30px}
+.module h2{font-size:19px}
+.module p{color:#aebbd5;font-size:13px;line-height:1.6}
+.module a{
+  display:inline-block;
+  margin-top:10px;
+  color:#b9a5ff;
+  text-decoration:none;
+  font-weight:bold;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@media(max-width:600px){
+  header{padding:18px;flex-wrap:wrap;gap:15px}
+  nav a{margin-left:0;margin-right:12px}
+  .hero{padding:28px;min-height:250px}
+  .hero h1{font-size:29px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">📦 PackCheck</div>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="index.html">Login</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Smart Packaging Quality Check</h1>
+    <p>Welcome to PackCheck. A smart platform to review packaging information, perform compliance checks and generate reports.</p>
+  </section>
+
+  <section class="modules">
+    <article class="module">
+      <div class="symbol">🖼️</div>
+      <h2>Image Upload</h2>
+      <p>Upload packaging images for quality inspection.</p>
+      <a href="upload.html">Open Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="symbol">📋</div>
+      <h2>Declarations</h2>
+      <p>Enter and review product declaration details.</p>
+      <a href="declarations.html">Open Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="symbol">📊</div>
+      <h2>Reports</h2>
+      <p>View compliance results and generated reports.</p>
+      <a href="report.html">Open Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="symbol">🕘</div>
+      <h2>History</h2>
+      <p>Review your previous packaging checks.</p>
+      <a href="history.html">Open Module →</a>
+    </article>
+  </section>
+</main>
+
+</body>
+</html>
