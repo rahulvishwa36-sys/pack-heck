@@ -78,20 +78,53 @@ body:not(.locked) .login{display:none}
 }
   /* PREMIUM HERO BACKGROUND */
 
+/* PACKCHECK PREMIUM HERO DESIGN */
+
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 280px;
+  min-height: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 38px;
+  padding: 42px;
+  border: 1px solid #51477D;
   border-radius: 24px;
   background:
-    linear-gradient(90deg, rgba(20,15,55,.92), rgba(35,25,85,.55)),
-    url("Smart%20Packaging%20Quality%20Check-2.png") center/cover no-repeat;
-  animation: fadeUp .8s ease both;
+    linear-gradient(
+      90deg,
+      rgba(12, 18, 43, 0.96) 0%,
+      rgba(25, 25, 65, 0.82) 55%,
+      rgba(30, 24, 68, 0.35) 100%
+    ),
+    url("Smart%20Packaging%20Quality%20Check-2.png")
+    center/cover no-repeat;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.hero h2 {
+  color: #FFFFFF;
+  font-size: clamp(26px, 3.2vw, 36px);
+  line-height: 1.25;
+  margin: 18px 0 12px;
+}
+
+.hero p {
+  color: #C2CBE5;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 590px;
+}
+
+.hero:after {
+  border-color: rgba(169, 149, 255, 0.12);
+}
+
   /* PREMIUM MODULE DESIGN */
 
 #upload,
