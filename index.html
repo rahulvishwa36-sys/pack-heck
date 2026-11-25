@@ -1452,6 +1452,184 @@ input[type="file"] {
   }
 }
 
+/* PACKCHECK — PREMIUM REPORT DESIGN */
+
+.premium-report {
+  padding: 25px;
+  background: linear-gradient(145deg, #0E233A, #0A1C30);
+  border: 1px solid #1A4964;
+  border-radius: 18px;
+}
+
+.report-heading {
+  margin-bottom: 25px;
+}
+
+.report-heading h3 {
+  color: #EDF8FF;
+  font-size: 21px;
+  margin: 0 0 7px;
+}
+
+.report-heading p {
+  color: #9DBBD0;
+  font-size: 12px;
+  margin: 0;
+}
+
+.report-summary {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  padding: 23px;
+  margin-bottom: 28px;
+  background: linear-gradient(120deg, #123653, #102B46);
+  border: 1px solid #24718A;
+  border-radius: 16px;
+}
+
+.report-summary .score {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 3px solid #00D9E8;
+  border-radius: 50%;
+  color: #00D9E8;
+  font-size: 25px;
+  font-weight: 900;
+  background: #091B2E;
+}
+
+.summary-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.result-label {
+  color: #00D9E8;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+}
+
+.report-summary h4 {
+  color: #EDF8FF;
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.report-summary p {
+  color: #9DBBD0;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.report-results-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.report-results-heading h4 {
+  color: #EDF8FF;
+  font-size: 15px;
+  margin: 0 0 5px;
+}
+
+.report-results-heading p {
+  color: #9DBBD0;
+  font-size: 11px;
+  margin: 0;
+}
+
+.premium-report .result-list {
+  display: grid;
+  gap: 11px;
+}
+
+.premium-report .report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 22px;
+  margin-top: 23px;
+  border-top: 1px solid #1A4964;
+}
+
+.premium-report .report-actions button {
+  min-height: 42px;
+  padding: 11px 17px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.report-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 16px;
+  margin-top: 23px;
+  background: #102B46;
+  border: 1px solid #244762;
+  border-radius: 12px;
+}
+
+.disclaimer-icon {
+  color: #00D9E8;
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.report-disclaimer b {
+  display: block;
+  color: #CDE5F5;
+  font-size: 12px;
+  margin-bottom: 7px;
+}
+
+.report-disclaimer p {
+  color: #91ABC0;
+  font-size: 10px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media(max-width:600px) {
+  .premium-report {
+    padding: 17px;
+  }
+
+  .report-summary {
+    align-items: flex-start;
+    gap: 15px;
+    padding: 16px;
+  }
+
+  .report-summary .score {
+    width: 68px;
+    height: 68px;
+    font-size: 20px;
+  }
+
+  .report-results-heading {
+    align-items: flex-start;
+  }
+
+  .premium-report .report-actions {
+    flex-direction: column;
+  }
+
+  .premium-report .report-actions button {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 <body class="locked">
@@ -1709,13 +1887,66 @@ input[type="file"] {
 </section>
 
 </div>
-<section class="panel report" id="report">
- <div class="panel-head"><div><h3>03 / Preliminary compliance report</h3><p id="report-meta">Results will appear here after you run the checks.</p></div><span class="pill">RULE ENGINE · DEMO</span></div>
- <div class="summary"><div class="score" id="score">—</div><div><h4 id="result-title">No report yet</h4><p id="result-desc">Complete the declaration form and run the checks. This demo tests data you enter, not the image itself.</p></div></div>
- <div class="result-list" id="result-list"></div>
- <div class="form-actions"><button class="btn primary" id="download">Download report (.txt)</button><button class="btn secondary" id="new-check">Run another check</button></div>
- <div class="note">Legal and technical limitation: these are preliminary software checks, not a complete interpretation of the Legal Metrology (Packaged Commodities) Rules, 2011. Applicability depends on product type, package, exemptions, amendments and current official requirements. Font size, placement, readability, misleading claims and actual label contents still need a suitable OCR/image-analysis module and human verification.</div>
+
+<section class="panel report premium-report" id="report">
+
+  <div class="panel-head report-heading">
+    <div>
+      <span class="section-kicker">ANALYSIS & RESULTS</span>
+      <h3>Compliance Inspection Report</h3>
+      <p id="report-meta">Results will appear here after you run the checks.</p>
+    </div>
+    <span class="pill">03 / RULE ENGINE</span>
+  </div>
+
+  <div class="summary report-summary">
+    <div class="score" id="score">—</div>
+    <div class="summary-content">
+      <span class="result-label">INSPECTION STATUS</span>
+      <h4 id="result-title">No report yet</h4>
+      <p id="result-desc">
+        Complete the declaration form and run the checks.
+        This demo tests data you enter, not the image itself.
+      </p>
+    </div>
+  </div>
+
+  <div class="report-results-heading">
+    <div>
+      <h4>Inspection Findings</h4>
+      <p>Review the results of each preliminary rule check.</p>
+    </div>
+    <span class="pill">CHECK RESULTS</span>
+  </div>
+
+  <div class="result-list" id="result-list"></div>
+
+  <div class="report-actions form-actions">
+    <button class="btn primary" id="download" type="button">
+      ↓ Download Report (.txt)
+    </button>
+    <button class="btn secondary" id="new-check" type="button">
+      ↻ Run Another Check
+    </button>
+  </div>
+
+  <div class="report-disclaimer">
+    <span class="disclaimer-icon">ⓘ</span>
+    <div>
+      <b>Important Legal & Technical Notice</b>
+      <p>
+        These are preliminary software checks, not a complete interpretation
+        of the Legal Metrology (Packaged Commodities) Rules, 2011.
+        Applicability depends on product type, package, exemptions,
+        amendments and current official requirements. Font size,
+        placement, readability, misleading claims and actual label contents
+        still need a suitable OCR/image-analysis module and human verification.
+      </p>
+    </div>
+  </div>
+
 </section>
+
 <section class="panel history" id="history">
  <div class="panel-head"><div><h3>Recent reports</h3><p>Saved in this browser for your Google account.</p></div><button class="btn ghost" id="clear-history">Clear history</button></div>
  <div class="history-list" id="history-list"><div class="empty">No reports yet. Run your first check to see it here.</div></div>
