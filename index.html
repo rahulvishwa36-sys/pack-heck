@@ -1068,6 +1068,72 @@ input[type="file"] {
     font-size: 27px;
   }
 }
+  /* PACKCHECK — PREMIUM STATISTICS REDESIGN */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.stat {
+  position: relative;
+  min-height: 155px;
+  padding: 21px;
+  border: 1px solid #1A4964;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #102B46, #091D32);
+  box-shadow: 0 8px 25px rgba(0,0,0,.22);
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  border-color: #00D9E8;
+  box-shadow: 0 12px 30px rgba(0,217,232,.10);
+}
+
+.stat-label {
+  color: #A9C6D9;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: #123B50;
+  color: #00D9E8;
+  border: 1px solid #176080;
+  font-size: 17px;
+}
+
+.stat strong {
+  display: block;
+  margin: 17px 0 5px;
+  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: 850;
+}
+
+.stat small {
+  color: #91B5D0;
+  font-size: 11px;
+}
+
+@media (max-width: 1000px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 <body class="locked">
