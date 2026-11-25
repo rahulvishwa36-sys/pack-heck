@@ -1630,6 +1630,105 @@ input[type="file"] {
   }
 }
 
+/* PACKCHECK — PREMIUM HISTORY DESIGN */
+
+.premium-history {
+  padding: 25px;
+  background: linear-gradient(145deg, #0E233A, #0A1C30);
+  border: 1px solid #1A4964;
+  border-radius: 18px;
+}
+
+.history-heading {
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.history-heading h3 {
+  color: #EDF8FF;
+  font-size: 21px;
+  margin: 0 0 7px;
+}
+
+.history-heading p {
+  color: #9DBBD0;
+  font-size: 12px;
+  margin: 0;
+}
+
+.history-heading .ghost {
+  padding: 10px 15px;
+  border: 1px solid #31536B;
+  border-radius: 9px;
+  color: #BBD3E4;
+  font-size: 11px;
+}
+
+.history-overview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  margin-bottom: 18px;
+  background: #102B46;
+  border: 1px solid #1A4964;
+  border-radius: 13px;
+}
+
+.history-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #123B50;
+  border: 1px solid #176080;
+  border-radius: 11px;
+  color: #00D9E8;
+  font-size: 23px;
+}
+
+.history-overview b {
+  display: block;
+  color: #EDF8FF;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.history-overview p {
+  color: #9DBBD0;
+  font-size: 11px;
+  margin: 0;
+}
+
+.premium-history .history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.premium-history .empty {
+  padding: 35px 18px;
+  text-align: center;
+  background: #091B2E;
+  border: 1px dashed #31536B;
+  border-radius: 13px;
+  color: #91ABC0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media(max-width:600px) {
+  .premium-history {
+    padding: 17px;
+  }
+
+  .history-heading {
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+
 </style>
 </head>
 <body class="locked">
@@ -1947,10 +2046,36 @@ input[type="file"] {
 
 </section>
 
-<section class="panel history" id="history">
- <div class="panel-head"><div><h3>Recent reports</h3><p>Saved in this browser for your Google account.</p></div><button class="btn ghost" id="clear-history">Clear history</button></div>
- <div class="history-list" id="history-list"><div class="empty">No reports yet. Run your first check to see it here.</div></div>
+<section class="panel history premium-history" id="history">
+
+  <div class="panel-head history-heading">
+    <div>
+      <span class="section-kicker">PREVIOUS INSPECTIONS</span>
+      <h3>Inspection History</h3>
+      <p>Access your previously generated compliance reports.</p>
+    </div>
+
+    <button class="btn ghost" id="clear-history" type="button">
+      Clear History
+    </button>
+  </div>
+
+  <div class="history-overview">
+    <div class="history-icon">◷</div>
+    <div>
+      <b>Your Recent Reports</b>
+      <p>Reports saved in this browser for your Google account.</p>
+    </div>
+  </div>
+
+  <div class="history-list" id="history-list">
+    <div class="empty">
+      No reports yet. Run your first check to see it here.
+    </div>
+  </div>
+
 </section>
+
 <div class="footer">PackCheck · Problem Statement ID 26034 · Educational prototype<br>For real compliance decisions, verify against the current official rules and qualified guidance.</div>
 </main></div>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
