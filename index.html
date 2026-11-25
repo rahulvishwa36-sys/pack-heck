@@ -1271,6 +1271,187 @@ input[type="file"] {
   }
 }
 
+/* PACKCHECK — PREMIUM DECLARATION FORM */
+
+.declaration-panel {
+  padding: 25px;
+  background: linear-gradient(145deg, #0E233A, #0A1C30);
+  border: 1px solid #1A4964;
+  border-radius: 18px;
+}
+
+.declaration-heading {
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.section-kicker {
+  display: block;
+  color: #00D9E8;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
+  margin-bottom: 9px;
+}
+
+.declaration-heading h3 {
+  color: #EDF8FF;
+  font-size: 21px;
+  margin: 0 0 7px;
+}
+
+.declaration-heading p {
+  color: #9DBBD0;
+  font-size: 12px;
+  margin: 0;
+}
+
+.declaration-intro {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  margin-bottom: 23px;
+  background: #102B46;
+  border: 1px solid #1A4964;
+  border-radius: 13px;
+}
+
+.declaration-intro-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #123B50;
+  color: #00D9E8;
+  border: 1px solid #176080;
+  border-radius: 11px;
+  font-size: 22px;
+}
+
+.declaration-intro b {
+  display: block;
+  color: #EDF8FF;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.declaration-intro p {
+  color: #9DBBD0;
+  font-size: 11px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.declaration-panel .fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.declaration-panel .field {
+  min-width: 0;
+}
+
+.declaration-panel .field.full {
+  grid-column: 1 / -1;
+}
+
+.declaration-panel .field label {
+  display: block;
+  color: #CDE5F5;
+  font-size: 11px;
+  font-weight: 750;
+  margin-bottom: 9px;
+}
+
+.declaration-panel .field input,
+.declaration-panel .field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #091B2E;
+  color: #EDF8FF;
+  border: 1px solid #244762;
+  border-radius: 10px;
+  padding: 13px 14px;
+  font-size: 12px;
+  outline: none;
+  transition: .2s ease;
+}
+
+.declaration-panel .field input {
+  min-height: 45px;
+}
+
+.declaration-panel .field textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.declaration-panel .field input::placeholder,
+.declaration-panel .field textarea::placeholder {
+  color: #66869F;
+}
+
+.declaration-panel .field input:focus,
+.declaration-panel .field textarea:focus {
+  border-color: #00D9E8;
+  box-shadow: 0 0 0 3px rgba(0,217,232,.10);
+}
+
+.declaration-panel .field .help {
+  color: #789BB5;
+  font-size: 10px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.declaration-panel .form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 23px;
+  margin-top: 25px;
+  border-top: 1px solid #1A4964;
+}
+
+.declaration-panel .form-actions button {
+  min-height: 42px;
+  padding: 11px 17px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+@media(max-width:650px) {
+  .declaration-panel {
+    padding: 17px;
+  }
+
+  .declaration-panel .fields {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .declaration-panel .field.full {
+    grid-column: auto;
+  }
+
+  .declaration-heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .declaration-panel .form-actions {
+    flex-direction: column;
+  }
+
+  .declaration-panel .form-actions button {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 <body class="locked">
@@ -1446,23 +1627,87 @@ input[type="file"] {
 
  <div class="note">Important: selecting an image does not extract its text. For this beginner version, type the declarations you can read from the label into the form on the right. OCR can be added later.</div>
 </section>
-<section class="panel" id="declarations">
- <div class="panel-head"><div><h3>02 / Enter label declarations</h3><p>Fill in what you can read from the package.</p></div><span class="pill">INPUT FORM</span></div>
- <form id="compliance-form">
- <div class="fields">
-  <div class="field full"><label for="product">Product name *</label><input id="product" placeholder="e.g. Packaged biscuits" required></div>
-  <div class="field full"><label for="maker">Manufacturer / packer / importer name and address *</label><textarea id="maker" placeholder="Enter the name and address as printed" required></textarea><div class="help">Check the role that applies to this product and the applicable rule.</div></div>
-  <div class="field"><label for="quantity">Net quantity *</label><input id="quantity" placeholder="e.g. 500 g" required></div>
-  <div class="field"><label for="mrp">MRP declaration (₹) *</label><input id="mrp" placeholder="e.g. ₹ 99.00" required></div>
-  <div class="field"><label for="date">Month / year or applicable date detail *</label><input id="date" placeholder="e.g. Packed: 08/2026" required></div>
-  <div class="field"><label for="consumer">Consumer care details *</label><input id="consumer" placeholder="Phone, email or address" required></div>
-  <div class="field"><label for="unitprice">Unit sale price (if applicable)</label><input id="unitprice" placeholder="Optional: e.g. ₹ 19.80 / 100 g"></div>
-  <div class="field"><label for="country">Country of origin (if applicable)</label><input id="country" placeholder="Optional: e.g. Made in India"></div>
-  <div class="field full"><label for="notes">Other declarations / observations</label><textarea id="notes" placeholder="Record other printed declarations, readability concerns, or inspection notes"></textarea></div>
- </div>
- <div class="form-actions"><button class="btn primary" type="submit">⚡ Run rule checks</button><button class="btn secondary" type="button" id="sample">Fill sample data</button><button class="btn ghost" type="reset" id="clear">Clear form</button></div>
- </form>
+
+<section class="panel declaration-panel" id="declarations">
+
+  <div class="panel-head declaration-heading">
+    <div>
+      <span class="section-kicker">INSPECTION DETAILS</span>
+      <h3>Product Declaration Form</h3>
+      <p>Enter the information printed on your product package.</p>
+    </div>
+    <span class="pill">02 / INPUT FORM</span>
+  </div>
+
+  <form id="compliance-form">
+
+    <div class="declaration-intro">
+      <div class="declaration-intro-icon">▤</div>
+      <div>
+        <b>Product Information</b>
+        <p>Fields marked with * are required for the preliminary checks.</p>
+      </div>
+    </div>
+
+    <div class="fields">
+
+      <div class="field full">
+        <label for="product">Product Name *</label>
+        <input id="product" placeholder="e.g. Packaged biscuits" required>
+      </div>
+
+      <div class="field full">
+        <label for="maker">Manufacturer / Packer / Importer Name and Address *</label>
+        <textarea id="maker" placeholder="Enter the name and address as printed" required></textarea>
+        <div class="help">Check the role that applies to this product and the applicable rule.</div>
+      </div>
+
+      <div class="field">
+        <label for="quantity">Net Quantity *</label>
+        <input id="quantity" placeholder="e.g. 500 g" required>
+      </div>
+
+      <div class="field">
+        <label for="mrp">Maximum Retail Price (MRP) *</label>
+        <input id="mrp" placeholder="e.g. ₹ 99.00" required>
+      </div>
+
+      <div class="field">
+        <label for="date">Date / Month / Year Detail *</label>
+        <input id="date" placeholder="e.g. Packed: 08/2026" required>
+      </div>
+
+      <div class="field">
+        <label for="consumer">Consumer Care Details *</label>
+        <input id="consumer" placeholder="Phone, email or address" required>
+      </div>
+
+      <div class="field">
+        <label for="unitprice">Unit Sale Price</label>
+        <input id="unitprice" placeholder="Optional: ₹ 19.80 / 100 g">
+      </div>
+
+      <div class="field">
+        <label for="country">Country of Origin</label>
+        <input id="country" placeholder="Optional: Made in India">
+      </div>
+
+      <div class="field full">
+        <label for="notes">Other Declarations / Observations</label>
+        <textarea id="notes" placeholder="Enter additional declarations or inspection observations"></textarea>
+      </div>
+
+    </div>
+
+    <div class="form-actions">
+      <button class="btn primary" type="submit">⚡ Run Rule Checks</button>
+      <button class="btn secondary" type="button" id="sample">Fill Sample Data</button>
+      <button class="btn ghost" type="reset" id="clear">Clear Form</button>
+    </div>
+
+  </form>
 </section>
+
 </div>
 <section class="panel report" id="report">
  <div class="panel-head"><div><h3>03 / Preliminary compliance report</h3><p id="report-meta">Results will appear here after you run the checks.</p></div><span class="pill">RULE ENGINE · DEMO</span></div>
