@@ -1134,6 +1134,63 @@ input[type="file"] {
     grid-template-columns: 1fr;
   }
 }
+  
+/* PACKCHECK — PREMIUM UPLOAD DESIGN */
+
+.drop {
+  position: relative;
+  padding: 38px 22px;
+  text-align: center;
+  border: 1.5px dashed #24718A;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #102B46, #0A1D32);
+  transition: .25s ease;
+}
+
+.drop:hover {
+  border-color: #00D9E8;
+  background: linear-gradient(145deg, #123653, #0B233A);
+}
+
+.upload-symbol {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 16px;
+  border-radius: 16px;
+  background: #123B50;
+  border: 1px solid #176080;
+  color: #00D9E8;
+  font-size: 30px;
+}
+
+.drop b {
+  display: block;
+  color: #EDF8FF;
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+
+.drop p {
+  color: #9DBBD0;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.drop .primary {
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.upload-formats {
+  margin-top: 17px;
+  color: #789BB5;
+  font-size: 10px;
+}
+
 </style>
 </head>
 <body class="locked">
@@ -1260,7 +1317,33 @@ input[type="file"] {
 <div class="grid">
 <section class="panel" id="upload">
  <div class="panel-head"><div><h3>01 / Product image</h3><p>Optional evidence image for your report.</p></div><span class="pill">IMAGE INPUT</span></div>
- <div class="drop" id="drop"><div class="upload-symbol">⬆</div><b>Drop a product label image here</b><p>or choose a file · PNG, JPG, WEBP · maximum 12 MB</p><button class="btn primary" id="choose">Choose image</button><input type="file" id="file" accept="image/png,image/jpeg,image/webp" hidden></div>
+ 
+<div class="drop" id="drop">
+  <div class="upload-symbol">⇧</div>
+
+  <b>Upload Product Label</b>
+
+  <p>
+    Drag and drop your product label image here,
+    or select an image from your device.
+  </p>
+
+  <button class="btn primary" id="choose" type="button">
+    Choose Product Image
+  </button>
+
+  <input
+    type="file"
+    id="file"
+    accept="image/png,image/jpeg,image/webp"
+    hidden
+  >
+
+  <div class="upload-formats">
+    Supported formats: PNG, JPG, WEBP · Max 12 MB
+  </div>
+</div>
+
  <div class="preview" id="preview"><img id="preview-img" alt="Selected package image"><div class="preview-info"><b id="file-name"></b><small id="file-size"></small><small style="color:var(--cyan)">Attached as visual evidence</small></div><button class="btn danger" id="remove">Remove</button></div>
  <div class="note">Important: selecting an image does not extract its text. For this beginner version, type the declarations you can read from the label into the form on the right. OCR can be added later.</div>
 </section>
