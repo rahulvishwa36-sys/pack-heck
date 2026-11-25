@@ -1191,6 +1191,86 @@ input[type="file"] {
   font-size: 10px;
 }
 
+/* PACKCHECK — PREMIUM IMAGE PREVIEW */
+
+.preview {
+  display: none;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  margin-top: 18px;
+  background: linear-gradient(145deg, #102B46, #0A1D32);
+  border: 1px solid #1A4964;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+
+.preview-image-wrap {
+  width: 105px;
+  height: 105px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  background: #071426;
+  border: 1px solid #24718A;
+  border-radius: 13px;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.preview-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-status {
+  display: inline-block;
+  color: #00D9E8;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1px;
+  margin-bottom: 9px;
+}
+
+.preview-info b {
+  display: block;
+  color: #EDF8FF;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.preview-info small {
+  display: block;
+  color: #9DBBD0;
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+.preview-info .preview-evidence {
+  color: #55DDB1;
+}
+
+.preview .danger {
+  padding: 9px 13px;
+  white-space: nowrap;
+}
+
+@media(max-width:550px) {
+  .preview {
+    flex-wrap: wrap;
+  }
+
+  .preview .danger {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
 <body class="locked">
@@ -1344,7 +1424,26 @@ input[type="file"] {
   </div>
 </div>
 
- <div class="preview" id="preview"><img id="preview-img" alt="Selected package image"><div class="preview-info"><b id="file-name"></b><small id="file-size"></small><small style="color:var(--cyan)">Attached as visual evidence</small></div><button class="btn danger" id="remove">Remove</button></div>
+
+<div class="preview" id="preview">
+  <div class="preview-image-wrap">
+    <img id="preview-img" alt="Selected package image">
+  </div>
+
+  <div class="preview-info">
+    <span class="preview-status">IMAGE ATTACHED</span>
+    <b id="file-name"></b>
+    <small id="file-size"></small>
+    <small class="preview-evidence">
+      ✓ Attached as visual evidence
+    </small>
+  </div>
+
+  <button class="btn danger" id="remove" type="button">
+    Remove Image
+  </button>
+</div>
+
  <div class="note">Important: selecting an image does not extract its text. For this beginner version, type the declarations you can read from the label into the form on the right. OCR can be added later.</div>
 </section>
 <section class="panel" id="declarations">
