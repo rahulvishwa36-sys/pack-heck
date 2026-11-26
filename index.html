@@ -2015,53 +2015,162 @@ input[type="file"] {
       </div>
     </div>
 
-    <div class="fields">
 
       <div class="field full">
         <label for="product">Product Name *</label>
         <input id="product" placeholder="e.g. Packaged biscuits" required>
       </div>
 
-      <div class="field full">
-        <label for="maker">Manufacturer / Packer / Importer Name and Address *</label>
-        <textarea id="maker" placeholder="Enter the name and address as printed" required></textarea>
-        <div class="help">Check the role that applies to this product and the applicable rule.</div>
-      </div>
+       <div class="field full">
+  <label for="maker">
+    Manufacturer / Packer / Importer Name and Address *
+  </label>
 
-      <div class="field">
-        <label for="quantity">Net Quantity *</label>
-        <input id="quantity" placeholder="e.g. 500 g" required>
-      </div>
+  <textarea
+    id="maker"
+    placeholder="Enter business name and complete address"
+    required
+  ></textarea>
 
-      <div class="field">
-        <label for="mrp">Maximum Retail Price (MRP) *</label>
-        <input id="mrp" placeholder="e.g. ₹ 99.00" required>
-      </div>
+  <div class="help">
+    Enter the business name and address printed on the package.
+    Identify whether the declaration refers to the manufacturer,
+    packer or importer, as applicable.
 
-      <div class="field">
-        <label for="date">Date / Month / Year Detail *</label>
-        <input id="date" placeholder="e.g. Packed: 08/2026" required>
-      </div>
+    Example: ABC Foods Pvt. Ltd., 12 Market Road,
+    Chennai, Tamil Nadu, India.
+  </div>
+</div>
+        <div class="field">
+  <label for="quantity">Net Quantity *</label>
 
-      <div class="field">
-        <label for="consumer">Consumer Care Details *</label>
-        <input id="consumer" placeholder="Phone, email or address" required>
-      </div>
+  <input
+    id="quantity"
+    placeholder="e.g. 500 g, 1 L, 10 pieces"
+    required
+  >
 
-      <div class="field">
-        <label for="unitprice">Unit Sale Price</label>
-        <input id="unitprice" placeholder="Optional: ₹ 19.80 / 100 g">
-      </div>
+  <div class="help">
+    Enter the quantity shown on the product package, including its unit.
 
-      <div class="field">
-        <label for="country">Country of Origin</label>
-        <input id="country" placeholder="Optional: Made in India">
-      </div>
+    Examples:
+    500 g for a solid product,
+    1 L for a liquid,
+    or 10 pieces where applicable.
 
-      <div class="field full">
-        <label for="notes">Other Declarations / Observations</label>
-        <textarea id="notes" placeholder="Enter additional declarations or inspection observations"></textarea>
-      </div>
+    This records the quantity supplied in the package.
+  </div>
+</div>
+
+        <div class="field">
+  <label for="mrp">Maximum Retail Price (MRP) *</label>
+
+  <input
+    id="mrp"
+    placeholder="e.g. ₹ 99.00"
+    required
+  >
+
+  <div class="help">
+    Enter the maximum retail price exactly as printed on the package.
+
+    Example: ₹ 99.00
+
+    Check that the price is clearly visible and includes the
+    applicable taxes, as required.
+  </div>
+</div>
+
+        <div class="field">
+  <label for="date">Date / Month / Year Detail *</label>
+
+  <input
+    id="date"
+    placeholder="e.g. Packed: 08/2026"
+    required
+  >
+
+  <div class="help">
+    Enter the date information exactly as printed on the package.
+
+    Example: Packed on 08/2026 or Manufacturing Date: 15/08/2026.
+
+    The required date declaration depends on the product and
+    applicable rules, so verify the correct requirement.
+  </div>
+</div>
+
+       <div class="field">
+  <label for="consumer">Consumer Care Details *</label>
+
+  <input
+    id="consumer"
+    placeholder="e.g. Phone number, email or address"
+    required
+  >
+
+  <div class="help">
+    Enter the consumer care contact details exactly as printed
+    on the package.
+
+    Example: Customer Care: 1800-123-4567,
+    care@example.com.
+
+    Check that the contact information is complete and readable.
+  </div>
+</div>
+        <div class="field">
+  <label for="unitprice">Unit Sale Price</label>
+
+  <input
+    id="unitprice"
+    placeholder="e.g. ₹ 19.80 / 100 g"
+  >
+
+  <div class="help">
+    Enter the price per standard unit of quantity, if it is
+    declared on the package.
+
+    Example: ₹ 19.80 per 100 g.
+
+    This field is optional. Its applicability depends on the
+    product and relevant rules.
+  </div>
+</div>
+
+        <div class="field">
+  <label for="country">Country of Origin</label>
+
+  <input
+    id="country"
+    placeholder="e.g. Made in India"
+  >
+
+  <div class="help">
+    Enter the country of origin exactly as printed on the package.
+
+    Example: Made in India.
+
+    This field is optional in this form. Verify whether it is
+    required for the product being inspected.
+  </div>
+</div>
+        <div class="field full">
+  <label for="notes">Other Declarations / Observations</label>
+
+  <textarea
+    id="notes"
+    placeholder="Enter additional declarations or inspection observations"
+  ></textarea>
+
+  <div class="help">
+    Record any additional information printed on the package
+    or observations made during inspection.
+
+    Example: Batch number, ingredients declaration,
+    warning statements or unclear printing.
+  </div>
+</div>
 
     </div>
 
@@ -2089,6 +2198,7 @@ input[type="file"] {
 
   <div class="summary report-summary">
     <div class="score" id="score">—</div>
+<div class="help">Field Completion Score (not a legal compliance score)</div>
     <div class="summary-content">
       <span class="result-label">INSPECTION STATUS</span>
       <h4 id="result-title">No report yet</h4>
@@ -2174,13 +2284,55 @@ const $ = id => document.getElementById(id);
 let imageUrl=null, imageCount=0, checksRun=0, latestReport=null, reportHistory=[];
 function toast(msg){$('toast').textContent=msg;$('toast').style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').style.display='none',2800)}
 function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function attachImage(file){
- if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)){toast('Please select a PNG, JPG or WEBP image.');return}
- if(file.size>12*1024*1024){toast('Image must be smaller than 12 MB.');return}
- if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=URL.createObjectURL(file);
- $('preview-img').src=imageUrl;$('file-name').textContent=file.name;$('file-size').textContent=(file.size/1024).toFixed(1)+' KB';$('preview').style.display='flex';$('drop').style.display='none';
- if(!imageCount)imageCount=1;$('stat-images').textContent=imageCount;toast('Image attached. Enter the label details manually.')
+
+async function attachImage(file) {
+  if (!file) return;
+
+  if (!['image/png', 'image/jpeg', 'image/webp'].includes(file.type)) {
+    $('file').value = '';
+    toast('Please select a PNG, JPG or WEBP image.');
+    return;
+  }
+
+  if (file.size > 12 * 1024 * 1024) {
+    $('file').value = '';
+    toast('Image must be smaller than 12 MB.');
+    return;
+  }
+
+  const newUrl = URL.createObjectURL(file);
+  const testImage = new Image();
+  testImage.src = newUrl;
+
+  try {
+    await testImage.decode();
+
+    if (!testImage.naturalWidth || !testImage.naturalHeight) {
+      throw new Error('Invalid image');
+    }
+  } catch (error) {
+    URL.revokeObjectURL(newUrl);
+    $('file').value = '';
+    toast('Image could not be loaded. Please choose another image.');
+    return;
+  }
+
+  if (imageUrl) URL.revokeObjectURL(imageUrl);
+
+  imageUrl = newUrl;
+  $('preview-img').src = imageUrl;
+  $('file-name').textContent = file.name;
+  $('file-size').textContent = (file.size / 1024).toFixed(1) + ' KB';
+
+  $('preview').style.display = 'flex';
+  $('drop').style.display = 'none';
+
+  if (!imageCount) imageCount = 1;
+  $('stat-images').textContent = imageCount;
+
+  toast('Image loaded successfully.');
 }
+
 $('choose').addEventListener('click',()=>$('file').click());
 $('file').addEventListener('change',e=>{if(e.target.files[0])attachImage(e.target.files[0])});
 $('remove').addEventListener('click',()=>{if(imageUrl)URL.revokeObjectURL(imageUrl);imageUrl=null;$('file').value='';$('preview').style.display='none';$('drop').style.display='block';toast('Image removed.')});
@@ -2200,6 +2352,14 @@ function quantityLooksPlausible(raw){
  return /\d/.test(raw) && /(kg|g|mg|l|ml|m[lL]|cm|mm|metre|meter|unit|piece|pcs|no\.?)/i.test(raw);
 }
 function runRuleChecks(){
+   if (!imageUrl) {
+   toast('Please upload and verify a product label image first.');
+   $('drop').scrollIntoView({
+     behavior: 'smooth',
+     block: 'center'
+   });
+   return;
+ }
  const fields=[
   {name:'Product name',id:'product',detail:'Record the product identity shown on the package.'},
   {name:'Manufacturer / packer / importer details',id:'maker',detail:'Verify the applicable business name and full address against the current rule.'},
