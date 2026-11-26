@@ -50,7 +50,60 @@
   letter-spacing: 1.3px;
   margin-top: 4px;
 }
+/* ===== PACKCHECK SIDEBAR BRAND ===== */
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 10px 20px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #1A4964;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00D9E8, #087BCA);
+  color: #FFFFFF;
+  font-size: 23px;
+  box-shadow: 0 0 18px #00D9E833;
+}
+
+.brand-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.brand-details strong {
+  color: #EDF8FF;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.brand-details small {
+  color: #75A4C3;
+  font-size: 9px;
+  letter-spacing: 1.3px;
+}
+
+.brand-version {
+  margin-left: auto;
+  color: #00D9E8;
+  background: #12364B;
+  border: 1px solid #1A6077;
+  border-radius: 6px;
+  padding: 5px 7px;
+  font-size: 9px;
+  font-weight: 800;
+}
 .nav-label {
   color: #75A4C3;
   font-size: 10px;
@@ -59,22 +112,49 @@
   margin-bottom: 9px;
 }
 
+/* ===== PREMIUM SIDEBAR NAVIGATION ===== */
+
 .nav {
   display: grid;
-  gap: 7px;
+  gap: 8px;
 }
 
 .nav button {
+  width: 100%;
+  min-height: 46px;
   border: 1px solid transparent;
   background: transparent;
-  color: #B5C9DF;
+  color: #A9C3D8;
   text-align: left;
-  padding: 12px;
+  padding: 11px 13px;
   border-radius: 11px;
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
   transition: all 0.25s ease;
+}
+
+.nav button > span:first-child {
+  width: 22px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 18px;
+  color: #76B9D4;
+}
+
+.nav button .nav-text {
+  flex: 1;
+  color: inherit;
+}
+
+.nav button:hover {
+  color: #FFFFFF;
+  background: #123653;
+  border-color: #087FA5;
+  transform: translateX(3px);
 }
 
 .nav button.active {
@@ -84,16 +164,9 @@
   box-shadow: 0 0 18px #00CFE544;
 }
 
-.nav button:hover {
+.nav button.active > span:first-child,
+.nav button.active .nav-text {
   color: #FFFFFF;
-  background: #123653;
-  border-color: #087FA5;
-}
-
-.nav button span {
-  width: 20px;
-  text-align: center;
-  font-size: 17px;
 }
 
 .side-info {
@@ -182,7 +255,17 @@ main {
 
 .hero{border:1px solid #28506b;border-radius:19px;padding:25px 28px;background:linear-gradient(115deg,#10283d,#192345 62%,#29204b);display:flex;align-items:center;justify-content:space-between;gap:15px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:200px;height:200px;border:35px solid #39e7ff0b;border-radius:50%;right:8%;top:-100px}.hero-copy{position:relative;z-index:1}.tag{font-size:10px;letter-spacing:1px;color:var(--cyan);border:1px solid #39e7ff45;background:#39e7ff0c;padding:7px 10px;border-radius:20px;display:inline-block}.hero h2{font-size:clamp(22px,3vw,30px);margin:14px 0 8px}.hero p{color:#aebfdb;line-height:1.7;font-size:12px;max-width:640px;margin:0}.hero-mark{font-size:62px;position:relative;z-index:1;filter:drop-shadow(0 0 20px #39e7ff22)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:18px 0}.stat,.panel{background:linear-gradient(145deg,#111c31,#0e1729);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}.stat-label{color:var(--muted);display:flex;justify-content:space-between;align-items:center;font-size:11px}.stat-icon{height:31px;width:31px;border-radius:10px;background:#1b3447;color:var(--cyan);display:grid;place-items:center}.stat strong{font-size:26px;display:block;margin:11px 0 4px}.stat small{font-size:10px;color:#8497b8}.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:16px}.panel{padding:21px}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:17px}.panel h3{font-size:15px;margin:0 0 5px}.panel-head p{font-size:11px;color:var(--muted);margin:0;line-height:1.5}.pill{font-size:9px;font-weight:800;letter-spacing:.8px;padding:7px 9px;border-radius:20px;color:var(--cyan);background:#163345;border:1px solid #254c61;white-space:nowrap}.drop{border:1.5px dashed #345575;background:#0d1a2d;border-radius:14px;text-align:center;padding:19px 14px}.drop.drag{border-color:var(--cyan);background:#11283b}.upload-symbol{font-size:27px;margin-bottom:7px}.drop b{display:block;font-size:12px}.drop p{font-size:10px;color:var(--muted);margin:7px 0 13px}.btn{border:1px solid transparent;border-radius:9px;padding:10px 13px;font-weight:750;font-size:11px;transition:.15s}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.primary{background:linear-gradient(100deg,#14bfdc,#5b8dff);color:#061321;box-shadow:0 5px 18px #1bc9e41b}.secondary{background:#1a2942;color:#c8d7f1;border-color:#30445f}.ghost{background:transparent;color:var(--muted);border-color:var(--line)}.danger{background:#351c2a;color:#ff9caf;border-color:#633043}.preview{display:none;align-items:center;gap:12px;padding:10px;margin-top:12px;border:1px solid var(--line);border-radius:12px}.preview img{height:67px;width:67px;object-fit:contain;background:#0a1120;border-radius:9px}.preview-info{flex:1;min-width:0}.preview-info b{font-size:11px;display:block;overflow-wrap:anywhere}.preview-info small{font-size:10px;color:var(--muted);display:block;margin-top:4px}.action-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.note{font-size:10px;line-height:1.6;color:#d7b978;background:#2a2519;border:1px solid #55462b;border-radius:10px;padding:11px;margin-top:14px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field.full{grid-column:1/-1}.field label{display:block;font-size:11px;font-weight:700;color:#c6d6ee;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;background:#0a1324;color:var(--text);border:1px solid #2b3d5a;border-radius:9px;padding:11px;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #39e7ff12}.field textarea{min-height:72px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#617494}.help{font-size:10px;color:#8195b5;margin-top:5px;line-height:1.5}.form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.checks{display:grid;gap:9px}.check{display:flex;gap:10px;padding:12px;border:1px solid var(--line);background:#0d1729;border-radius:11px;align-items:flex-start}.check-icon{height:29px;width:29px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;background:#192e43;color:var(--cyan)}.check b{font-size:11px;display:block;margin:1px 0 4px}.check small{font-size:10px;color:var(--muted);line-height:1.55;display:block}.report{display:none;margin-top:16px}.summary{display:flex;gap:13px;align-items:center;background:#0c1729;border:1px solid var(--line);padding:14px;border-radius:12px;margin-bottom:13px}.score{width:59px;height:59px;border:3px solid var(--amber);color:var(--amber);border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;flex-shrink:0}.summary h4{margin:0 0 5px;font-size:13px}.summary p{font-size:10px;color:var(--muted);line-height:1.6;margin:0}.result-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.result-item{border:1px solid var(--line);border-radius:10px;padding:11px;background:#0c1729}.result-item b{font-size:11px;display:block;margin-bottom:5px}.result-item small{font-size:10px;color:var(--muted);line-height:1.5;display:block}.status{font-size:9px;font-weight:900;letter-spacing:.7px;margin-bottom:6px;display:inline-block;padding:4px 7px;border-radius:6px}.status.pass{background:#12382f;color:var(--green)}.status.fail{background:#3a1d2a;color:var(--red)}.status.review{background:#3a301d;color:var(--amber)}.history{margin-top:16px}.history-list{display:grid;gap:8px}.history-entry{border:1px solid var(--line);border-radius:10px;padding:11px;display:flex;justify-content:space-between;align-items:center;gap:10px}.history-entry b{font-size:11px;display:block;overflow-wrap:anywhere}.history-entry small{font-size:10px;color:var(--muted);display:block;margin-top:4px}.empty{padding:16px;border:1px dashed var(--line);color:var(--muted);text-align:center;border-radius:10px;font-size:11px}.footer{color:#7184a4;text-align:center;font-size:10px;line-height:1.7;margin-top:20px}.toast{position:fixed;right:18px;bottom:18px;background:#e8faff;color:#071827;padding:12px 16px;border-radius:10px;font-size:12px;font-weight:700;display:none;z-index:10;box-shadow:0 8px 30px #0006;max-width:calc(100vw - 36px)}
 @media(max-width:1000px){.app{grid-template-columns:205px 1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.hero-mark{font-size:48px}}
-@media(max-width:650px){.app{display:block}.sidebar{padding:13px;gap:13px}.nav-label,.side-info{display:none}.nav{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.nav button{flex-direction:column;justify-content:center;text-align:center;font-size:9px;padding:9px 2px;gap:4px}.nav button span{font-size:15px}.top{align-items:flex-start}.top h1{font-size:21px}.user-chip{padding:5px}.user-chip .who{display:none}main{padding:18px 12px 30px}.hero{padding:20px}.hero-mark{display:none}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:22px}.panel{padding:15px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.result-list{grid-template-columns:1fr}}
+@media(max-width:650px){.app{display:block}.sidebar{padding:13px;gap:13px}.nav-label,.side-info{display:none}.nav{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.nav button{flex-direction:column;justify-content:center;text-align:center;font-size:9px;padding:9px 2px;gap:4px}.nav button > span:first-child {
+  font-size: 17px;
+  width: auto;
+}
+
+.nav button .nav-text {
+  font-size: 9px;
+  line-height: 1.2;
+  flex: none;
+}
+.top{align-items:flex-start}.top h1{font-size:21px}.user-chip{padding:5px}.user-chip .who{display:none}main{padding:18px 12px 30px}.hero{padding:20px}.hero-mark{display:none}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:22px}.panel{padding:15px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.result-list{grid-template-columns:1fr}}
 
 .login{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at 75% -10%,#1c2c55 0,transparent 45%),radial-gradient(ellipse at 10% 110%,#2a1f55 0,transparent 40%),var(--bg)}
 .login-card{width:100%;max-width:420px;border:1px solid #28506b;border-radius:20px;padding:34px 30px;text-align:center;background:linear-gradient(145deg,#111c31,#0e1729);box-shadow:0 20px 60px #0008}
@@ -1743,44 +1826,50 @@ input[type="file"] {
 <div class="app">
 
 <aside class="sidebar">
+<div class="brand">
+  <div class="brand-icon">⚖</div>
 
-  <div class="brand">
-    <div class="brand-icon">⚖</div>
-    <div>
-      <strong>PackCheck</strong>
-      <small>COMPLIANCE LAB / 26034</small>
-    </div>
+  <div class="brand-details">
+    <strong>PackCheck</strong>
+    <small>COMPLIANCE LAB</small>
   </div>
 
-  <div>
-    <div class="nav-label">WORKSPACE</div>
-    <nav class="nav">
-      <button class="active" data-target="overview">
-        <span>▦</span> Dashboard
-      </button>
+  <span class="brand-version">26034</span>
+</div>
+ <div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="nav">
+    <button class="active" data-target="overview">
+      <span>▦</span>
+      <span class="nav-text">Dashboard</span>
+    </button>
 
-      <button data-target="upload">
-        <span>▧</span> Label Inspection
-      </button>
+    <button data-target="upload">
+      <span>▧</span>
+      <span class="nav-text">Label Inspection</span>
+    </button>
 
-      <button data-target="declarations">
-        <span>⌁</span> Declarations
-      </button>
+    <button data-target="declarations">
+      <span>⌁</span>
+      <span class="nav-text">Declarations</span>
+    </button>
 
-      <button data-target="report">
-        <span>▤</span> Reports
-      </button>
-    </nav>
-  </div>
+    <button data-target="report">
+      <span>▤</span>
+      <span class="nav-text">Reports</span>
+    </button>
+  </nav>
+</div>
 
-  <div>
-    <div class="nav-label">RECORDS</div>
-    <nav class="nav">
-      <button data-target="history">
-        <span>◷</span> Inspection History
-      </button>
-    </nav>
-  </div>
+<div>
+  <div class="nav-label">RECORDS</div>
+  <nav class="nav">
+    <button data-target="history">
+      <span>◷</span>
+      <span class="nav-text">Inspection History</span>
+    </button>
+  </nav>
+</div>
 
   <div class="side-info">
     <b>◉ DEMO MODE</b>
